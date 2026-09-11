@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Talisay Beach Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-water sidebar-brand-icon"></i>
+      <div class="sidebar-brand-text">
+        <h2>Talisay Admin</h2>
+        <span>Resort Management</span>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li class="menu-item active">
+        <a href="admin-dashboard.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="admin-reservations.html">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Reservations</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="admin-users.html">
+          <i class="fa-solid fa-users"></i>
+          <span>Registered Users</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <button type="button" class="btn-sidebar-logout admin-logout-trigger">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="admin-main">
+    
+    <!-- Topbar -->
+    <div class="admin-topbar">
+      <div class="admin-page-header">
+        <h1>Dashboard Overview</h1>
+        <p>Welcome back. Here is the resort's performance for today.</p>
+      </div>
+
+      <!-- Export Dropdown -->
+      <div class="export-dropdown-container">
+        <button type="button" class="btn-export" id="exportMenuBtn">
+          <i class="fa-solid fa-file-csv"></i>
+          <span>Export CSV</span>
+          <i class="fa-solid fa-chevron-down" style="font-size: 11px; margin-left: 4px;"></i>
+        </button>
+
+        <div class="export-menu" id="exportMenu" style="width: 180px;">
+          <div style="padding: 8px 14px 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px;">
+            Export CSV By:
+          </div>
+          <button type="button" class="export-item" id="exportCsvDayBtn">
+            <i class="fa-regular fa-calendar"></i>
+            <span>By Day</span>
+          </button>
+          <button type="button" class="export-item" id="exportCsvMonthBtn">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>By Month</span>
+          </button>
+          <button type="button" class="export-item" id="exportCsvYearBtn">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>By Year</span>
+          </button>
+          <div style="height: 1px; background: #e2e8f0; margin: 4px 0;"></div>
+          <button type="button" class="export-item" id="exportCsvAllBtn">
+            <i class="fa-solid fa-list-check"></i>
+            <span>All Records</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Metric Cards -->
+    <section class="stats-grid">
+      <!-- Total Bookings -->
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-title">Total Bookings</span>
+          <i class="fa-solid fa-ticket stat-icon"></i>
+        </div>
+        <div class="stat-value" id="metricTotalBookings">0</div>
+        <div class="stat-subtext">—</div>
+      </div>
+
+      <!-- Total Registered Users -->
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-title">Total Registered Users</span>
+          <i class="fa-solid fa-user-check stat-icon"></i>
+        </div>
+        <div class="stat-value" id="metricTotalVisitors">0</div>
+        <div class="stat-subtext">—</div>
+      </div>
+
+      <!-- Used Facilities -->
+      <div class="stat-card" style="position: relative;">
+        <div class="stat-header">
+          <span class="stat-title">Used Facilities</span>
+          <i class="fa-solid fa-umbrella-beach stat-icon"></i>
+        </div>
+        <div class="stat-value" id="metricUsedFacilities">0</div>
+        <div class="stat-subtext" id="metricUsedFacilitiesSub">0 rooms &bull; 0 cottages booked</div>
+        <div class="facility-breakdown-pills" id="facilityBreakdownPills" style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px;"></div>
+      </div>
+
+      <!-- Total Revenue -->
+      <div class="stat-card revenue-card">
+        <div class="stat-header">
+          <span class="stat-title">Total Revenue</span>
+          <i class="fa-solid fa-wallet stat-icon"></i>
+        </div>
+        <div class="stat-value" id="metricTotalRevenue">₱0.00</div>
+        <div class="stat-subtext" style="color: #93c5fd;">—</div>
+      </div>
+    </section>
+
+    <!-- Recent Bookings Card -->
+    <section class="admin-card">
+      <div class="card-header-bar">
+        <h2 class="card-title">Recent Bookings</h2>
+        <a href="admin-reservations.html" class="card-action-link">
+          <span>View All</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Bulk Action Bar -->
+      <div class="bulk-action-bar" id="dashboardBulkBar">
+        <div class="bulk-action-info">
+          <i class="fa-solid fa-list-check" style="color: #0066cc;"></i>
+          <span>Selected: <span class="badge-selected-count" id="dashboardSelectedCount">0</span></span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn-bulk-cancel" id="dashboardBulkCancelBtn">Clear</button>
+          <button type="button" class="btn-bulk-delete" id="dashboardBulkDeleteBtn">
+            <i class="fa-solid fa-trash-can"></i> Delete Selected
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th class="col-checkbox">
+                <input type="checkbox" class="table-checkbox" id="dashboardSelectAll" title="Select All Bookings">
+              </th>
+              <th>Booking ID</th>
+              <th>Customer</th>
+              <th>Facility</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recentBookingsTbody">
+            <!-- Dynamically populated via assets/js/admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notifications -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

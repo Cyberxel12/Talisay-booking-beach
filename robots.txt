@@ -1,0 +1,32 @@
+﻿# Robots.txt for Talisay Beach Resort
+# Allow search engines to index public guest pages; protect admin management panels
+
+User-agent: Googlebot
+Allow: /
+Allow: /index.html
+Allow: /home.html
+Allow: /facilities.html
+Allow: /availability.html
+Allow: /gallery.html
+Allow: /contact.html
+Allow: /register.html
+Allow: /assets/
+Disallow: /admin-dashboard.html
+Disallow: /admin-reservations.html
+Disallow: /admin-users.html
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /home.html
+Allow: /facilities.html
+Allow: /availability.html
+Allow: /gallery.html
+Allow: /contact.html
+Allow: /register.html
+Allow: /assets/
+Disallow: /admin-dashboard.html
+Disallow: /admin-reservations.html
+Disallow: /admin-users.html
+
+Sitemap: https://talisaybeachresort.com/sitemap.xml

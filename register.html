@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account - Guest Registration | Talisay Beach Resort</title>
+
+  <!-- Primary Google SEO Meta Tags -->
+  <meta name="description" content="Register your guest account at Talisay Beach Resort in Tabina, Zamboanga del Sur to easily book and manage your room and cottage reservations.">
+  <meta name="keywords" content="Talisay Beach registration, create guest account, beach resort sign up Tabina">
+  <meta name="author" content="Talisay Beach Resort">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://talisaybeachresort.com/register.html">
+  <meta name="theme-color" content="#0066cc">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <!-- Top Left Resort Logo -->
+    <div class="auth-top-logo">
+      <img src="logo.png" alt="Talisay Beach Logo">
+    </div>
+
+    <!-- Bottom Left Banner -->
+    <div class="auth-bottom-banner">
+      <h1>TALISAY BEACH</h1>
+      <div class="subtitle">TOUR AND BOOKING MANAGEMENT SYSTEM</div>
+      <div class="tagline">Discover. Book. Experience.</div>
+      <div class="banner-divider">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <div class="location">Tabina, Zamboanga del Sur</div>
+    </div>
+
+    <!-- Register Card -->
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-avatar-circle">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h2>Create an Account</h2>
+        <p>Join us and start your beach adventure</p>
+        <div class="palm-divider">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-user icon-left"></i>
+            <input type="text" id="regFullName" placeholder="Full Name" required autocomplete="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-envelope icon-left"></i>
+            <input type="email" id="regEmail" placeholder="Email Address" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-phone icon-left"></i>
+            <input type="tel" id="regPhone" placeholder="Phone Number (e.g. 09123456789)" required autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-user icon-left"></i>
+            <input type="text" id="regUsername" placeholder="Username" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-lock icon-left"></i>
+            <input type="password" id="regPassword" placeholder="Password" required autocomplete="new-password">
+            <i class="fa-solid fa-eye icon-right toggle-password" data-target="regPassword"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-lock icon-left"></i>
+            <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required autocomplete="new-password">
+            <i class="fa-solid fa-eye icon-right toggle-password" data-target="regConfirmPassword"></i>
+          </div>
+        </div>
+
+        <div class="auth-options" style="margin: 14px 0 18px;">
+          <label class="checkbox-label" style="font-size: 13px;">
+            <input type="checkbox" id="agreeTermsCheckbox" required>
+            <span>I agree to the <a href="#" id="openTermsModal" style="text-decoration: underline; font-weight: 600;">Terms and Conditions</a> and Privacy Policy</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-auth-primary">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>REGISTER</span>
+        </button>
+      </form>
+
+      <div class="auth-separator">Already have an account?</div>
+
+      <a href="index.html" class="btn-auth-secondary">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        <span>LOGIN HERE</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions Modal (matching terms and conditon.png) -->
+  <div class="modal-overlay" id="termsModal">
+    <div class="terms-modal-card">
+      <div class="terms-header">
+        <button type="button" class="modal-close-btn" id="closeTermsBtn">&times;</button>
+        <h3>Terms and Conditions</h3>
+        <div class="palm-divider" style="margin: 6px auto;">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+        <div class="terms-subtitle">
+          Please read the following terms and conditions carefully before using Talisay Beach Resort.
+        </div>
+      </div>
+
+      <div class="terms-body">
+        <ul class="terms-list">
+          <li class="terms-item">
+            <span class="terms-num">1</span>
+            <div class="terms-text">
+              <strong>Keep the Resort Clean</strong>
+              <span>Dispose of all garbage properly and use designated trash bins.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">2</span>
+            <div class="terms-text">
+              <strong>No Littering</strong>
+              <span>Throwing waste on the beach, sea, pool, or resort grounds is strictly prohibited.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">3</span>
+            <div class="terms-text">
+              <strong>Follow Swimming Rules</strong>
+              <span>Visitors must stay within designated swimming areas and follow all safety signs.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">4</span>
+            <div class="terms-text">
+              <strong>Supervise Children</strong>
+              <span>Parents or guardians are responsible for supervising children at all times.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">5</span>
+            <div class="terms-text">
+              <strong>Respect Resort Property</strong>
+              <span>Do not damage, break, move, or misuse cottages, chairs, tables, equipment, or other facilities.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">6</span>
+            <div class="terms-text">
+              <strong>Respect Other Visitors</strong>
+              <span>Maintain proper behavior and avoid excessive noise, fighting, harassment, or disturbing other guests.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">7</span>
+            <div class="terms-text">
+              <strong>Protect the Environment</strong>
+              <span>Do not damage plants, trees, coral, marine life, or other natural resources.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">8</span>
+            <div class="terms-text">
+              <strong>Follow Resort Staff Instructions</strong>
+              <span>Visitors must follow reasonable instructions from authorized resort staff, security personnel, and lifeguards.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">9</span>
+            <div class="terms-text">
+              <strong>Restricted Areas</strong>
+              <span>Visitors are not allowed to enter staff-only, maintenance, or other restricted areas.</span>
+            </div>
+          </li>
+          <li class="terms-item">
+            <span class="terms-num">10</span>
+            <div class="terms-text">
+              <strong>Observe Resort Hours</strong>
+              <span>Visitors must follow the designated operating hours of the beach, swimming areas, cottages, and other facilities.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="terms-footer">
+        <button type="button" class="btn-agree" id="agreeTermsBtn">I AGREE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

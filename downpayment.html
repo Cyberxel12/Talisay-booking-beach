@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downpayment - Talisay Beach Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="home.html" class="brand-link">
+        <i class="fa-solid fa-water brand-icon"></i>
+        <span>Talisay Beach Resort</span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="home.html">Home</a></li>
+        <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a href="facilities.html">Facilities</a></li>
+        <li class="nav-item"><a href="availability.html">Availability</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-nav-logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+        <button type="button" class="user-avatar-btn" title="View Profile">
+          <i class="fa-regular fa-circle-user"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Centered Downpayment Card matching downpayment.png -->
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; background: url('1.png') center/cover no-repeat; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);"></div>
+
+    <div class="downpayment-modal-card" style="position: relative; z-index: 10; max-width: 460px;">
+      <a href="availability.html" class="downpayment-close-btn" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </a>
+
+      <div class="downpayment-badge">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div class="downpayment-title">Done</div>
+      <div class="downpayment-subtitle">Payment</div>
+      <div class="downpayment-thanks">Arigathanks!!</div>
+
+      <div class="downpayment-info-box">
+        <div class="downpayment-info-row">
+          <span>Booking Reference:</span>
+          <strong>HI-143</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Customer:</span>
+          <strong>Dona Laurito</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Facility:</span>
+          <strong>Family Room</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Downpayment Status:</span>
+          <strong style="color: #86efac;">Verified &amp; Paid</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Total:</span>
+          <strong style="color: #fef08a;">₱ 14,400.00</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <a href="home.html" class="btn-downpayment-action" style="text-decoration: none; text-align: center;">
+          <i class="fa-solid fa-house"></i> Home Dashboard
+        </a>
+        <a href="availability.html" class="btn-downpayment-action" style="text-decoration: none; text-align: center; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4);">
+          <i class="fa-solid fa-plus"></i> New Booking
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <i class="fa-solid fa-water text-primary"></i>
+        <span>Talisay Beach Resort</span>
+      </div>
+      <div>&copy; 2024 Talisay Beach Resort. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

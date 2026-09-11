@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password - Talisay Beach Resort</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <!-- Top Left Resort Logo -->
+    <div class="auth-top-logo">
+      <img src="logo.png" alt="Talisay Beach Logo">
+    </div>
+
+    <!-- Bottom Left Banner -->
+    <div class="auth-bottom-banner">
+      <h1>TALISAY BEACH</h1>
+      <div class="subtitle">TOUR AND BOOKING MANAGEMENT SYSTEM</div>
+      <div class="tagline">Discover. Book. Experience.</div>
+      <div class="banner-divider">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <div class="location">Tabina, Zamboanga del Sur</div>
+    </div>
+
+    <!-- Forgot Password Card -->
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-avatar-circle" style="background: #e0f2fe; color: #0284c7;">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h2 style="font-size: 26px; text-transform: none; font-style: normal; font-weight: 800;">Forgot Password?</h2>
+        <p style="font-size: 13px; line-height: 1.5; margin-top: 6px;">
+          No worries! Enter your registered email address and we'll send you instructions to reset your password.
+        </p>
+        <div class="palm-divider">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+      </div>
+
+      <form id="forgotForm">
+        <div class="form-group">
+          <label id="forgotInputLabel" style="display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 6px;">
+            Registered Email Address
+          </label>
+          <div class="input-icon-group">
+            <i class="fa-solid fa-envelope icon-left"></i>
+            <input type="email" id="forgotInput" placeholder="Enter your registered email address" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-primary" style="margin-top: 18px;">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>SEND RESET LINK</span>
+        </button>
+      </form>
+
+      <div class="auth-separator">OR</div>
+
+      <a href="index.html" class="btn-auth-secondary">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>BACK TO LOGIN</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

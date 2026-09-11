@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Talisay Beach Resort - Published Shareable Portal</title>
+  <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+      color: #f8fafc;
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .portal-card {
+      max-width: 960px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .portal-header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px;
+    }
+    .badge-published {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .tagline {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    .share-box-grid {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 24px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 30px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .share-box-grid { grid-template-columns: 1fr; }
+    }
+    .link-group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .url-display-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .url-input {
+      flex: 1;
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 8px;
+      outline: none;
+    }
+    .btn-copy {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-copy:hover { background: #0369a1; transform: translateY(-1px); }
+    .share-hint {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .qr-container {
+      text-align: center;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+    }
+    .qr-container img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+    .qr-caption {
+      font-size: 11px;
+      color: #334155;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    .portal-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #f8fafc;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+    .portal-btn:hover {
+      background: rgba(2, 132, 199, 0.2);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+      color: #38bdf8;
+    }
+    .portal-btn i {
+      font-size: 18px;
+      color: #38bdf8;
+      width: 24px;
+      text-align: center;
+    }
+    .portal-btn.admin-btn {
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+    .portal-btn.admin-btn:hover {
+      background: rgba(168, 85, 247, 0.15);
+      border-color: #c084fc;
+      color: #c084fc;
+    }
+    .portal-btn.admin-btn i {
+      color: #c084fc;
+    }
+    .portal-footer {
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class=portal-card>
+    <div class=portal-header>
+      <div class=badge-published><div class=pulse-dot></div> Live &amp; Published</div>
+      <h1>TALISAY BEACH RESORT</h1>
+      <div class=tagline>Cross-Device Web Portal &bull; Tabina, Zamboanga del Sur</div>
+    </div>
+
+    <!-- Shareable Link & QR Code Row -->
+    <div class=share-box-grid>
+      <div>
+        <div class=link-group-title><i class=fa-solid fa-tower-broadcast></i> Your Shareable Cross-Device Link:</div>
+        <div class=url-display-box>
+          <input type=text class=url-input id=shareableUrl value=http://192.168.1.50:8080/ readonly>
+          <button type=button class=btn-copy id=copyBtn><i class=fa-solid fa-copy></i> Copy</button>
+        </div>
+        <div class=share-hint>
+          <i class=fa-solid fa-circle-check style=color: #10b981;></i> <strong>Zero Software &bull; Zero APK:</strong> Share this link with any phone, tablet, or laptop on your Wi-Fi/Hotspot. All buttons, bookings, and admin controls are 100% clickable and functional with real-time Firebase sync!
+        </div>
+      </div>
+
+      <div class=qr-container>
+        <img id=qrImg src=https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://192.168.1.50:8080/ alt=Scan to Open Resort on Mobile>
+        <div class=qr-caption><i class=fa-solid fa-camera></i> Scan with Phone Camera</div>
+      </div>
+    </div>
+
+    <!-- Clickable Guest Pages -->
+    <div class=section-title><i class=fa-solid fa-umbrella-beach style=color: #38bdf8;></i> Guest Web Pages (Click to Open)</div>
+    <div class=links-grid>
+      <a href=home.html class=portal-btn><i class=fa-solid fa-house></i> <span>Home Portal</span></a>
+      <a href=availability.html class=portal-btn><i class=fa-solid fa-calendar-check></i> <span>Book Rooms &amp; Cottages</span></a>
+      <a href=facilities.html class=portal-btn><i class=fa-solid fa-swimming-pool></i> <span>Facilities &amp; Amenities</span></a>
+      <a href=gallery.html class=portal-btn><i class=fa-solid fa-images></i> <span>Photo Gallery</span></a>
+      <a href=contact.html class=portal-btn><i class=fa-solid fa-envelope></i> <span>Contact &amp; Location</span></a>
+      <a href=index.html class=portal-btn><i class=fa-solid fa-right-to-bracket></i> <span>Guest Login</span></a>
+      <a href=register.html class=portal-btn><i class=fa-solid fa-user-plus></i> <span>Register Account</span></a>
+    </div>
+
+    <!-- Clickable Admin Pages -->
+    <div class=section-title><i class=fa-solid fa-shield-halved style=color: #c084fc;></i> Admin Management Panel (Click to Open)</div>
+    <div class=links-grid>
+      <a href=admin-dashboard.html class=portal-btn admin-btn><i class=fa-solid fa-chart-line></i> <span>Admin Dashboard</span></a>
+      <a href=admin-reservations.html class=portal-btn admin-btn><i class=fa-solid fa-list-check></i> <span>Reservations (Approve/Reject)</span></a>
+      <a href=admin-users.html class=portal-btn admin-btn><i class=fa-solid fa-users-gear></i> <span>Registered Users</span></a>
+    </div>
+
+    <div class=portal-footer>
+      Talisay Beach Resort &bull; Tabina, Zamboanga del Sur &bull; Built with HTML5, CSS3, JS &amp; Firebase Cloud Realtime Sync
+    </div>
+  </div>
+
+  <script>
+    // Automatically detect current host if loaded via browser
+    if (window.location.protocol.startsWith('http')) {
+      const currentOrigin = window.location.origin + '/';
+      const input = document.getElementById('shareableUrl');
+      if (input) input.value = currentOrigin;
+      const qr = document.getElementById('qrImg');
+      if (qr) qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(currentOrigin);
+    }
+
+    document.getElementById('copyBtn').addEventListener('click', function() {
+      const input = document.getElementById('shareableUrl');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerHTML = '<i class=fa-solid fa-check></i> Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerHTML = '<i class=fa-solid fa-copy></i> Copy';
+          btn.style.background = '#0284c7';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿{
+  "rules": {
+    "talisay_resort": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}

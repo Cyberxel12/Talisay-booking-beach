@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Users - Talisay Beach Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-water sidebar-brand-icon"></i>
+      <div class="sidebar-brand-text">
+        <h2>Talisay Admin</h2>
+        <span>Resort Management</span>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li class="menu-item">
+        <a href="admin-dashboard.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="admin-reservations.html">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Reservations</span>
+        </a>
+      </li>
+      <li class="menu-item active">
+        <a href="admin-users.html">
+          <i class="fa-solid fa-users"></i>
+          <span>Registered Users</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <button type="button" class="btn-sidebar-logout admin-logout-trigger">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="admin-main">
+    
+    <!-- Topbar Header -->
+    <div class="admin-topbar">
+      <div class="admin-page-header">
+        <h1>Registered Users</h1>
+        <p>Manage and monitor customer and guest accounts.</p>
+      </div>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="users-search-bar">
+      <!-- Search Input -->
+      <div class="search-box users-search-input">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="userSearchInput" placeholder="Search by name, email, phone...">
+      </div>
+
+
+    </div>
+
+    <!-- Users Table Card -->
+    <section class="admin-card">
+      <!-- Bulk Action Bar -->
+      <div class="bulk-action-bar" id="usersBulkBar">
+        <div class="bulk-action-info">
+          <i class="fa-solid fa-users-gear" style="color: #0066cc;"></i>
+          <span>Selected: <span class="badge-selected-count" id="usersSelectedCount">0</span></span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn-bulk-cancel" id="usersBulkCancelBtn">Clear</button>
+          <button type="button" class="btn-bulk-delete" id="usersBulkDeleteBtn">
+            <i class="fa-solid fa-trash-can"></i> Delete Selected
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th class="col-checkbox">
+                <input type="checkbox" class="table-checkbox" id="usersSelectAll" title="Select All Users">
+              </th>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Registration Date</th>
+              <th>Status</th>
+              <th style="text-align: right; padding-right: 20px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <!-- Dynamically populated via assets/js/admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table Footer / Pagination -->
+      <div class="table-footer-bar">
+        <span id="userCountInfo">Showing 1 of 1 user</span>
+
+        <div class="pagination-controls">
+          <button type="button" class="page-btn" title="Previous Page">&lt;</button>
+          <button type="button" class="page-btn active">1</button>
+          <button type="button" class="page-btn">2</button>
+          <button type="button" class="page-btn">3</button>
+          <span style="padding: 0 4px; color: #94a3b8;">...</span>
+          <button type="button" class="page-btn" title="Next Page">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       MODAL: VIEW USER ACCOUNT DETAILS
+       ========================================================= -->
+  <div class="admin-modal-overlay" id="userDetailsModal">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <i class="fa-solid fa-circle-user"></i>
+          <div>
+            <h3>User Account Details</h3>
+            <span style="font-size: 12px; color: #64748b;">Talisay Beach Resort - Customer Profile</span>
+          </div>
+        </div>
+        <button type="button" class="btn-modal-close" id="btnCloseUserDetailsModal">&times;</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <div class="reservation-details-grid">
+          <div class="detail-item">
+            <span class="detail-label">User ID</span>
+            <span class="detail-value" id="modalDetailUserId" style="color: #0066cc; font-family: monospace;">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Account Status</span>
+            <span id="modalDetailUserStatus"><span class="badge active">Active</span></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Customer Name</span>
+            <span class="detail-value" id="modalDetailUserName">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Username</span>
+            <span class="detail-value" id="modalDetailUserUsername">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Phone Number</span>
+            <span class="detail-value" id="modalDetailUserPhone">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Registration Date</span>
+            <span class="detail-value" id="modalDetailUserRegDate">-</span>
+          </div>
+          <div class="detail-item full-width" style="grid-column: 1 / -1;">
+            <span class="detail-label">Email Address</span>
+            <span class="detail-value" id="modalDetailUserEmail">-</span>
+          </div>
+          <div class="detail-item full-width" style="grid-column: 1 / -1; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+            <span class="detail-label">System Role</span>
+            <span class="detail-value" id="modalDetailUserRole" style="color: #475569; text-transform: capitalize;">Customer / Guest</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-action-secondary" id="btnBottomCloseUserDetailsModal" style="padding: 9px 22px;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

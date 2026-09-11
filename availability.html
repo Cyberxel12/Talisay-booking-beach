@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Rooms &amp; Cottages - Real-Time Availability | Talisay Beach Resort</title>
+
+  <!-- Primary Google SEO Meta Tags -->
+  <meta name="description" content="Check real-time availability and book rooms or native cottages at Talisay Beach Resort, Tabina. Choose Day Tour (8am-5pm) or Overnight stays with instant confirmation.">
+  <meta name="keywords" content="Book Talisay Beach Resort, room availability Tabina, cottage rental Zamboanga del Sur, beachfront suite booking, day tour cottage reservation">
+  <meta name="author" content="Talisay Beach Resort">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://talisaybeachresort.com/availability.html">
+  <meta name="theme-color" content="#0066cc">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://talisaybeachresort.com/availability.html">
+  <meta property="og:title" content="Book Rooms &amp; Cottages - Talisay Beach Resort">
+  <meta property="og:description" content="Select Day Tour or Overnight stay for premier beachfront rooms and cottages with real-time vacancy tracking.">
+  <meta property="og:image" content="https://talisaybeachresort.com/1.png">
+  <meta property="og:site_name" content="Talisay Beach Resort">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book Rooms &amp; Cottages - Talisay Beach Resort">
+  <meta name="twitter:description" content="Book Day Tour cottages and Overnight suites in Tabina, Zamboanga del Sur.">
+  <meta name="twitter:image" content="https://talisaybeachresort.com/1.png">
+
+  <!-- Schema.org JSON-LD Structured Data for Lodging Reservation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Talisay Beach Resort Booking",
+    "url": "https://talisaybeachresort.com/availability.html",
+    "description": "Book luxury air-conditioned suites and native seaside cottages with Day Tour and Overnight schedules.",
+    "telephone": "+639979051718",
+    "priceRange": "₱1,000 - ₱5,000",
+    "paymentAccepted": "Cash on Arrival",
+    "currenciesAccepted": "PHP",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tabina",
+      "addressRegion": "Zamboanga del Sur",
+      "addressCountry": "PH"
+    },
+    "containsPlace": [
+      {
+        "@type": "HotelRoom",
+        "name": "Elizabeth Room",
+        "description": "Premier air-conditioned master suite with luxury amenities.",
+        "occupancy": 6
+      },
+      {
+        "@type": "HotelRoom",
+        "name": "Fernando Room",
+        "description": "Comfortable air-conditioned suite with twin beds and balcony.",
+        "occupancy": 6
+      },
+      {
+        "@type": "Accommodation",
+        "name": "Beachfront Native Cottage",
+        "description": "Native bamboo cottage right by the sea with sunset views."
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="home.html" class="brand-link">
+        <i class="fa-solid fa-water brand-icon"></i>
+        <span>Talisay Beach Resort</span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="home.html">Home</a></li>
+        <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a href="facilities.html">Facilities</a></li>
+        <li class="nav-item"><a href="availability.html" class="active">Availability</a></li>
+        <li class="nav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-nav-logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+        <button type="button" class="user-avatar-btn" title="View Profile">
+          <i class="fa-regular fa-circle-user"></i>
+        </button>
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Booking Page Container -->
+  <main class="content-section" style="margin-top: 35px;">
+    <h1 class="booking-page-title">Complete Your Booking</h1>
+
+    <div class="booking-layout">
+      <!-- Left Steps Column -->
+      <div class="booking-steps-col">
+        
+        <!-- Step 1: Select Stay Schedule & Dates -->
+        <div class="booking-step-card">
+          <div class="step-card-header">
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>1. Select Schedule &amp; Dates</span>
+          </div>
+
+          <!-- Stay Type Toggle (Day / Night / Mixed) -->
+          <div style="margin-bottom: 18px;">
+            <label style="display: block; font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 8px;">
+              Stay Schedule Preset <span style="font-weight: 400; color: #94a3b8;">(or customize per accommodation below)</span>
+            </label>
+            <div class="stay-type-group">
+              <button type="button" class="stay-type-btn" id="stayTypeDay" data-type="day">
+                <i class="fa-solid fa-sun" style="color: #eab308; font-size: 15px;"></i>
+                <span>All Day Tour</span>
+              </button>
+              <button type="button" class="stay-type-btn active" id="stayTypeNight" data-type="night">
+                <i class="fa-solid fa-moon" style="color: #0284c7; font-size: 15px;"></i>
+                <span>All Overnight</span>
+              </button>
+              <button type="button" class="stay-type-btn" id="stayTypeMixed" data-type="mixed">
+                <i class="fa-solid fa-layer-group" style="color: #059669; font-size: 15px;"></i>
+                <span>Mixed (Customize)</span>
+              </button>
+            </div>
+            <div class="stay-type-hint">
+              <i class="fa-solid fa-circle-info" style="color: #0284c7; font-size: 12px;"></i>
+              You can also pick <strong>Day Tour</strong> or <strong>Overnight</strong> individually for each room or cottage below.
+            </div>
+          </div>
+
+          <div class="dates-grid">
+            <div class="date-field">
+              <label for="checkInDate" id="checkInLabel">Check-in Date</label>
+              <input type="date" id="checkInDate" required>
+            </div>
+            <div class="date-field" id="checkOutField">
+              <label for="checkOutDate" id="checkOutLabel">Check-out Date</label>
+              <input type="date" id="checkOutDate" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Choose Accommodation (Rooms & Cottages) -->
+        <div class="booking-step-card">
+          <div class="step-card-header">
+            <i class="fa-solid fa-bed"></i>
+            <span>2. Choose Cottage or Room</span>
+          </div>
+          <div style="font-size: 13px; color: #64748b; font-weight: 600; margin-bottom: 8px;">
+            <i class="fa-solid fa-hand-pointer" style="color: #0066cc;"></i> Select how many rooms or cottages you want. Total updates automatically.
+          </div>
+
+          <div class="accommodations-grid">
+            <!-- Room 1: Elizabeth Room -->
+            <div class="room-card" data-id="elizabeth-room" data-name="Elizabeth Room" data-type="room" data-max="6" data-qty="0" data-price-day="4500" data-price-night="5000" data-price="5000" data-schedule="night">
+              <div class="room-img">
+                <img src="room1.jpg" alt="Elizabeth Room">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 6 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Elizabeth Room</div>
+                <div class="room-subtitle">Premier air-conditioned master suite with luxury amenities.</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱4,500</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱5,000</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-bed"></i> 6 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 5,000 <span class="rate-unit">/night</span></div>
+                
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag night-tag"><i class="fa-solid fa-moon"></i> Overnight</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night active" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-bed"></i> Select Rooms:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Elizabeth Rooms">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                        <option value="4">4 Rooms</option>
+                        <option value="5">5 Rooms</option>
+                        <option value="6">6 Rooms (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Room 2: Fernando Room -->
+            <div class="room-card" data-id="fernando-room" data-name="Fernando Room" data-type="room" data-max="6" data-qty="0" data-price-day="2500" data-price-night="3500" data-price="3500" data-schedule="night">
+              <div class="room-img">
+                <img src="room2.jpg" alt="Fernando Room">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 6 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Fernando Room</div>
+                <div class="room-subtitle">Comfortable air-conditioned suite with twin beds &amp; balcony.</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱2,500</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱3,500</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-bed"></i> 6 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 3,500 <span class="rate-unit">/night</span></div>
+                
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag night-tag"><i class="fa-solid fa-moon"></i> Overnight</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night active" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-bed"></i> Select Rooms:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Fernando Rooms">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                        <option value="4">4 Rooms</option>
+                        <option value="5">5 Rooms</option>
+                        <option value="6">6 Rooms (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cottage 1: Cottage (Beachfront) -->
+            <div class="room-card" data-id="cottage-beachfront" data-name="Cottage 1 (Beachfront)" data-type="cottage" data-max="10" data-qty="0" data-price-day="1000" data-price-night="2000" data-price="1000" data-schedule="day">
+              <div class="room-img">
+                <img src="cot1.jpg" alt="Cottage Beachfront">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 10 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Cottage 1 (Beachfront)</div>
+                <div class="room-subtitle">Native bamboo cottage by the sea (Rate is per single cottage, not whole).</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱1,000</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱2,000</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-umbrella-beach"></i> 10 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 1,000 <span class="rate-unit">/day (per cottage)</span></div>
+
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag day-tag"><i class="fa-solid fa-sun"></i> Day Tour</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day active" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-umbrella-beach"></i> Select Cottages:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Beachfront Cottages">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Cottage</option>
+                        <option value="2">2 Cottages</option>
+                        <option value="3">3 Cottages</option>
+                        <option value="4">4 Cottages</option>
+                        <option value="5">5 Cottages</option>
+                        <option value="6">6 Cottages</option>
+                        <option value="7">7 Cottages</option>
+                        <option value="8">8 Cottages</option>
+                        <option value="9">9 Cottages</option>
+                        <option value="10">10 Cottages (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cottage 2: Cottage (Sunset View) -->
+            <div class="room-card" data-id="cottage-sunset" data-name="Cottage 2 (Sunset View)" data-type="cottage" data-max="10" data-qty="0" data-price-day="1000" data-price-night="2000" data-price="1000" data-schedule="day">
+              <div class="room-img">
+                <img src="cot2.jpg" alt="Cottage Sunset View">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 10 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Cottage 2 (Sunset View)</div>
+                <div class="room-subtitle">Rustic bamboo retreat facing the sunset (Rate is per single cottage, not whole).</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱1,000</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱2,000</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-umbrella-beach"></i> 10 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 1,000 <span class="rate-unit">/day (per cottage)</span></div>
+
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag day-tag"><i class="fa-solid fa-sun"></i> Day Tour</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day active" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-umbrella-beach"></i> Select Cottages:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Sunset View Cottages">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Cottage</option>
+                        <option value="2">2 Cottages</option>
+                        <option value="3">3 Cottages</option>
+                        <option value="4">4 Cottages</option>
+                        <option value="5">5 Cottages</option>
+                        <option value="6">6 Cottages</option>
+                        <option value="7">7 Cottages</option>
+                        <option value="8">8 Cottages</option>
+                        <option value="9">9 Cottages</option>
+                        <option value="10">10 Cottages (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cottage 3: Cottage (Garden View) -->
+            <div class="room-card" data-id="cottage-garden" data-name="Cottage 3 (Garden View)" data-type="cottage" data-max="10" data-qty="0" data-price-day="1000" data-price-night="2000" data-price="1000" data-schedule="day">
+              <div class="room-img">
+                <img src="cot3.jpg" alt="Cottage Garden View">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 10 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Cottage 3 (Garden View)</div>
+                <div class="room-subtitle">Shaded bamboo cottage among palm trees (Rate is per single cottage, not whole).</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱1,000</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱2,000</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-umbrella-beach"></i> 10 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 1,000 <span class="rate-unit">/day (per cottage)</span></div>
+
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag day-tag"><i class="fa-solid fa-sun"></i> Day Tour</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day active" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-umbrella-beach"></i> Select Cottages:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Garden View Cottages">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Cottage</option>
+                        <option value="2">2 Cottages</option>
+                        <option value="3">3 Cottages</option>
+                        <option value="4">4 Cottages</option>
+                        <option value="5">5 Cottages</option>
+                        <option value="6">6 Cottages</option>
+                        <option value="7">7 Cottages</option>
+                        <option value="8">8 Cottages</option>
+                        <option value="9">9 Cottages</option>
+                        <option value="10">10 Cottages (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Room 3: Fernando Room (Standard) -->
+            <div class="room-card" data-id="fernando-room-standard" data-name="Fernando Room (Standard)" data-type="room" data-max="6" data-qty="0" data-price-day="2500" data-price-night="3500" data-price="3500" data-schedule="night">
+              <div class="room-img">
+                <img src="room3.jpg" alt="Fernando Room Standard">
+                <span class="badge-vacant badge-vacant-corner"><i class="fa-solid fa-circle-check"></i> 6 Vacant</span>
+                <span class="badge-selected-qty"><i class="fa-solid fa-check"></i> <span class="badge-qty-num">0</span> Selected</span>
+              </div>
+              <div class="room-info">
+                <div class="room-title">Fernando Room (Standard)</div>
+                <div class="room-subtitle">Private air-conditioned bedroom with queen bed &amp; private bath.</div>
+                <div class="rate-badge-row">
+                  <span class="rate-badge day-rate"><i class="fa-solid fa-sun"></i> Day: ₱2,500</span>
+                  <span class="rate-badge night-rate"><i class="fa-solid fa-moon"></i> Night: ₱3,500</span>
+                  <span class="badge-vacant"><i class="fa-solid fa-bed"></i> 6 Vacant</span>
+                </div>
+                <div class="room-price" style="margin-top: 8px;">₱ 3,500 <span class="rate-unit">/night</span></div>
+
+                <!-- Per-Card Schedule Toggle -->
+                <div class="card-schedule-box">
+                  <div class="card-schedule-label-row">
+                    <span class="card-schedule-label"><i class="fa-solid fa-clock-rotate-left"></i> Stay Type:</span>
+                    <span class="card-schedule-current-tag night-tag"><i class="fa-solid fa-moon"></i> Overnight</span>
+                  </div>
+                  <div class="card-schedule-toggle">
+                    <button type="button" class="card-sched-btn sched-day" data-schedule="day">
+                      <i class="fa-solid fa-sun"></i> Day Tour
+                    </button>
+                    <button type="button" class="card-sched-btn sched-night active" data-schedule="night">
+                      <i class="fa-solid fa-moon"></i> Overnight
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Quantity Selector Feature -->
+                <div class="room-qty-box">
+                  <div class="room-qty-label-row">
+                    <span class="room-qty-label"><i class="fa-solid fa-bed"></i> Select Rooms:</span>
+                    <span class="room-subtotal-badge" style="display:none;">₱ 0</span>
+                  </div>
+                  <div class="qty-control-row">
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease" title="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <div class="qty-select-wrapper">
+                      <select class="room-qty-select" aria-label="Select number of Fernando Standard Rooms">
+                        <option value="0" selected>0 (None)</option>
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                        <option value="4">4 Rooms</option>
+                        <option value="5">5 Rooms</option>
+                        <option value="6">6 Rooms (Max)</option>
+                      </select>
+                    </div>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase" title="Increase"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Total Amount Callout Box (inside Step 2) -->
+          <div class="selection-total-callout" id="selectionTotalCallout">
+            <div>
+              <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; font-weight: 700;">
+                Calculated Reservation Total:
+              </div>
+              <div style="font-size: 14px; font-weight: 600; margin-top: 3px;" id="calloutBreakdown">
+                No room or cottage selected. Select how many rooms or cottages you want above.
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 12px; opacity: 0.9; font-weight: 600;">Total Amount:</div>
+              <div style="font-size: 26px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px;" id="calloutTotalAmount">
+                ₱ 0
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Summary Sidebar -->
+      <aside class="booking-summary-col">
+        <div class="booking-summary-card">
+          <h3>Booking Summary</h3>
+
+          <div class="summary-dates-row">
+            <div class="summary-date-col">
+              <span class="label">Check-in</span>
+              <span class="val" id="summaryCheckIn">Oct 24, 2024</span>
+            </div>
+            <div class="summary-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="summary-date-col">
+              <span class="label">Check-out</span>
+              <span class="val" id="summaryCheckOut">Oct 25, 2024</span>
+            </div>
+          </div>
+
+          <div class="summary-room-row">
+            <div>
+              <div class="summary-room-title" id="summaryRoomTitle">None Selected</div>
+              <div class="summary-room-calc" id="summaryRoomCalc">Select quantity above</div>
+            </div>
+            <div class="summary-room-price" id="summaryRoomPrice">₱ 0</div>
+          </div>
+
+          <div class="summary-total-row">
+            <span class="summary-total-label">Total Amount</span>
+            <span class="summary-total-amount" id="summaryTotalAmount">₱ 0</span>
+          </div>
+
+          <button type="button" class="btn-confirm-booking" id="confirmBookingBtn">
+            <span>Confirm Booking</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- Booking Status & Management Feature (Below Confirm Booking) -->
+          <div class="booking-status-section" id="bookingStatusSection" style="margin-top: 18px; padding-top: 16px; border-top: 1.5px solid #e2e8f0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 13px; font-weight: 800; color: #0f172a;">
+                <i class="fa-solid fa-clipboard-check" style="color: #0066cc;"></i> Reservation Status
+              </span>
+              <span id="activeStatusPill" class="status-badge pending">
+                <i class="fa-solid fa-clock"></i> Pending
+              </span>
+            </div>
+
+            <!-- Status Notice Box (Shows Pending until Admin approves or rejects) -->
+            <div id="statusNoticeBox" style="font-size: 12px; padding: 9px 12px; border-radius: 6px; background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; line-height: 1.4;">
+              <i class="fa-solid fa-hourglass-half" id="statusNoticeIcon" style="font-size: 14px; color: #ca8a04;"></i>
+              <span id="statusNoticeText">Awaiting Admin approval. Shows Pending until the Admin approves or rejects your reservation.</span>
+            </div>
+
+            <!-- Active / Recent Booking Box -->
+            <div class="active-booking-box" id="activeBookingBox" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px;">
+              <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; margin-bottom: 3px;">
+                <span>Booking Reference:</span>
+                <strong id="activeBookingRef" style="color: #0066cc;">None</strong>
+              </div>
+              <div style="font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 3px;" id="activeBookingFacility">
+                No active booking yet
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b;">
+                <span>Amount Due:</span>
+                <strong id="activeBookingAmount" style="color: #0f172a;">₱ 0.00</strong>
+              </div>
+            </div>
+
+            <!-- Cancel Button to not avail if done booking -->
+            <button type="button" class="btn-cancel-reservation" id="cancelReservationBtn" style="display: none;">
+              <i class="fa-solid fa-ban"></i> Cancel Booking (Not Avail)
+            </button>
+          </div>
+
+          <div class="summary-footnote" style="margin-top: 14px;">
+            Taxes and fees included.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Payment Selector Modal (Cash on Arrival only - GCash removed) -->
+  <div class="modal-overlay" id="paymentChoiceModal">
+    <div class="payment-choice-card">
+      <div class="terms-header">
+        <button type="button" class="modal-close-btn" onclick="document.getElementById('paymentChoiceModal').classList.remove('active')">&times;</button>
+        <h3>Confirm Your Reservation</h3>
+        <p style="font-size: 13px; color: #64748b; margin-top: 4px;">Payment Method: Cash on Arrival</p>
+      </div>
+      <div class="terms-body" style="padding: 16px 0;">
+        <div style="margin-bottom: 16px; background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 12px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Total Amount Due (Pay at Front Desk):</div>
+          <div id="modalPaymentAmount" style="font-size: 28px; font-weight: 900; color: #0066cc; margin-top: 4px;">₱ 0</div>
+        </div>
+
+        <div style="padding: 16px; border: 2px solid #0066cc; border-radius: 12px; background: #eff6ff; display: flex; align-items: center; gap: 14px;">
+          <i class="fa-solid fa-money-bill-wave" style="font-size: 28px; color: #10b981;"></i>
+          <div>
+            <strong style="display: block; font-size: 14px; color: #0f172a; font-weight: 700;">Cash on Arrival</strong>
+            <span style="font-size: 12px; color: #64748b; line-height: 1.4; display: block; margin-top: 2px;">Pay the full amount in cash upon check-in at the Talisay Beach Resort front desk.</span>
+          </div>
+        </div>
+      </div>
+      <div class="terms-footer" style="display: flex; gap: 10px; padding-top: 10px;">
+        <button type="button" class="btn-complete-booking" id="submitPaymentBtn">
+          <i class="fa-solid fa-circle-check"></i> Complete Reservation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Downpayment / Payment Confirmation Modal (Exactly Matching downpayment.png) -->
+  <div class="modal-overlay" id="downpaymentModal">
+    <div class="downpayment-modal-card">
+      <button type="button" class="downpayment-close-btn" id="closeDownpaymentBtn" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="downpayment-badge">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div class="downpayment-title">Reservation Submitted</div>
+      <div class="downpayment-subtitle">Payment Method: Cash on Arrival</div>
+      <div class="downpayment-thanks">Thank you for choosing Talisay Beach Resort!</div>
+
+      <div class="downpayment-info-box">
+        <div class="downpayment-info-row">
+          <span>Booking Reference:</span>
+          <strong id="downpaymentRefId">HI-144</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Guest Name:</span>
+          <strong id="downpaymentCustName">Dona Laurito</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span id="downpaymentAmountLabel">Total Paid:</span>
+          <strong id="downpaymentTotalAmount">₱ 14,400.00</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Payment Method:</span>
+          <strong id="downpaymentPayMethod" style="color: #38bdf8;">Cash on Arrival</strong>
+        </div>
+        <div class="downpayment-info-row">
+          <span>Status:</span>
+          <strong id="downpaymentStatusText" style="color: #fef08a;">Confirmed / Pay at Front Desk</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+        <button type="button" class="btn-downpayment-action" id="finishBookingBtn">
+          Done
+        </button>
+        <button type="button" class="btn-cancel-reservation" id="modalCancelBookingBtn">
+          <i class="fa-solid fa-ban"></i> Cancel Booking (Not Avail)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <i class="fa-solid fa-water text-primary"></i>
+        <span>Talisay Beach Resort</span>
+      </div>
+      <div>
+        <a href="#" class="footer-link" id="openTermsModal">Terms and Condition</a>
+      </div>
+      <div>
+        &copy; 2024 Talisay Beach Resort. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

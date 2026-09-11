@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Management - Talisay Beach Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-water sidebar-brand-icon"></i>
+      <div class="sidebar-brand-text">
+        <h2>Talisay Admin</h2>
+        <span>Resort Management</span>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li class="menu-item">
+        <a href="admin-dashboard.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="menu-item active">
+        <a href="admin-reservations.html">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Reservations</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="admin-users.html">
+          <i class="fa-solid fa-users"></i>
+          <span>Registered Users</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <button type="button" class="btn-sidebar-logout admin-logout-trigger">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="admin-main">
+    
+    <!-- Topbar Header -->
+    <div class="admin-topbar">
+      <div class="admin-page-header">
+        <h1>Reservation Management</h1>
+        <p>Review and verify all guest bookings and reservation details.</p>
+      </div>
+    </div>
+
+    <!-- Resort Metric Overview Cards -->
+    <section class="stats-grid">
+      <!-- Total Bookings -->
+      <div class="stat-card stat-total">
+        <div class="stat-header">
+          <span class="stat-title">Total Bookings</span>
+          <i class="fa-solid fa-ticket stat-icon"></i>
+        </div>
+        <div class="stat-value" id="resMetricTotal">0</div>
+        <div class="stat-subtext" id="resMetricTotalSub">All recorded stays</div>
+      </div>
+
+      <!-- Pending Approval -->
+      <div class="stat-card stat-pending">
+        <div class="stat-header">
+          <span class="stat-title">Pending Approvals</span>
+          <i class="fa-solid fa-clock-rotate-left stat-icon"></i>
+        </div>
+        <div class="stat-value" id="resMetricPending">0</div>
+        <div class="stat-subtext">
+          <span class="stat-badge-pulse" id="resMetricPendingBadge">Needs Review</span>
+        </div>
+      </div>
+
+      <!-- Approved Stays -->
+      <div class="stat-card stat-approved">
+        <div class="stat-header">
+          <span class="stat-title">Approved Stays</span>
+          <i class="fa-solid fa-circle-check stat-icon"></i>
+        </div>
+        <div class="stat-value" id="resMetricApproved">0</div>
+        <div class="stat-subtext" id="resMetricApprovedSub">Confirmed bookings</div>
+      </div>
+
+      <!-- Total Reservation Value -->
+      <div class="stat-card revenue-card">
+        <div class="stat-header">
+          <span class="stat-title">Expected Revenue</span>
+          <i class="fa-solid fa-wallet stat-icon"></i>
+        </div>
+        <div class="stat-value" id="resMetricRevenue">₱0.00</div>
+        <div class="stat-subtext" style="color: #93c5fd;">Approved stays total</div>
+      </div>
+    </section>
+
+    <!-- Reservations Data Card -->
+    <section class="admin-card">
+      <div class="card-header-bar">
+        <div class="table-controls">
+          <!-- Status Filter Pills with dynamic counts -->
+          <div class="filter-pills">
+            <span style="font-size: 13px; font-weight: 700; color: #475569; margin-right: 4px;">Status:</span>
+            <button type="button" class="status-pill res-filter-pill active" data-status="All">
+              All <span class="filter-count-badge" id="pillCountAll">0</span>
+            </button>
+            <button type="button" class="status-pill res-filter-pill" data-status="Pending">
+              Pending <span class="filter-count-badge" id="pillCountPending">0</span>
+            </button>
+            <button type="button" class="status-pill res-filter-pill" data-status="Approved">
+              Approved <span class="filter-count-badge" id="pillCountApproved">0</span>
+            </button>
+            <button type="button" class="status-pill res-filter-pill" data-status="Rejected">
+              Rejected <span class="filter-count-badge" id="pillCountRejected">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bulk Action Bar -->
+      <div class="bulk-action-bar" id="resBulkBar">
+        <div class="bulk-action-info">
+          <i class="fa-solid fa-list-check" style="color: #0066cc;"></i>
+          <span>Selected: <span class="badge-selected-count" id="resSelectedCount">0</span></span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn-bulk-cancel" id="resBulkCancelBtn">Clear</button>
+          <button type="button" class="btn-bulk-delete" id="resBulkDeleteBtn">
+            <i class="fa-solid fa-trash-can"></i> Delete Selected
+          </button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th class="col-checkbox">
+                <input type="checkbox" class="table-checkbox" id="resSelectAll" title="Select All Reservations">
+              </th>
+              <th>Booking ID</th>
+              <th>Customer</th>
+              <th>Accommodation</th>
+              <th>Stay Dates</th>
+              <th>Total &amp; Payment</th>
+              <th>Status</th>
+              <th style="text-align: right; padding-right: 24px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reservationsTableBody">
+            <!-- Dynamically populated via assets/js/admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table Footer / Pagination -->
+      <div class="table-footer-bar">
+        <span id="reservationCountInfo">Loading reservations...</span>
+
+        <div class="pagination-controls">
+          <button type="button" class="page-btn" id="btnPrevPage" title="Previous Page">&lt;</button>
+          <button type="button" class="page-btn active">1</button>
+          <button type="button" class="page-btn" id="btnNextPage" title="Next Page">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       MODAL 1: VIEW RESERVATION DETAILS
+       ========================================================= -->
+  <div class="admin-modal-overlay" id="reservationDetailsModal">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <div class="admin-modal-title">
+          <i class="fa-solid fa-water"></i>
+          <div>
+            <h3>Reservation Details</h3>
+            <span style="font-size: 12px; color: #64748b;">Talisay Beach Resort - Booking Summary</span>
+          </div>
+        </div>
+        <button type="button" class="btn-modal-close" id="btnCloseDetailsModal">&times;</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <div class="reservation-details-grid">
+          <div class="detail-item">
+            <span class="detail-label">Booking Reference</span>
+            <span class="detail-value" id="modalDetailBookingId" style="color: #0066cc; font-family: monospace;">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Current Status</span>
+            <span id="modalDetailStatusBadge"><span class="badge pending">Pending</span></span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Customer Name</span>
+            <span class="detail-value" id="modalDetailCustomer">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Contact Phone</span>
+            <span class="detail-value" id="modalDetailPhone">-</span>
+          </div>
+          <div class="detail-item full-width" style="grid-column: 1 / -1;">
+            <span class="detail-label">Email Address</span>
+            <span class="detail-value" id="modalDetailEmail">-</span>
+          </div>
+          <div class="detail-item full-width" style="grid-column: 1 / -1;">
+            <span class="detail-label">Accommodation &amp; Schedule</span>
+            <span class="detail-value" id="modalDetailFacility">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Check-in</span>
+            <span class="detail-value" id="modalDetailCheckIn">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Check-out</span>
+            <span class="detail-value" id="modalDetailCheckOut">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Payment Method</span>
+            <span class="detail-value" id="modalDetailPayMethod">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Payment Reference</span>
+            <span class="detail-value" id="modalDetailPayRef" style="font-family: monospace;">-</span>
+          </div>
+          <div class="detail-item full-width" style="grid-column: 1 / -1; border-top: 1px dashed #cbd5e1; padding-top: 12px; margin-top: 4px;">
+            <span class="detail-label">Total Amount</span>
+            <span class="detail-value highlight-amount" id="modalDetailAmount">₱0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-modal-footer">
+        <button type="button" class="btn-action-secondary" id="btnBottomCloseDetailsModal" style="padding: 9px 22px;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

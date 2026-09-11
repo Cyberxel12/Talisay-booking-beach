@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talisay Beach Resort - Tour & Booking Management System | Tabina, Zamboanga del Sur</title>
+  
+  <!-- Primary Google SEO Meta Tags -->
+  <meta name="description" content="Welcome to Talisay Beach Resort in Tabina, Zamboanga del Sur. Book beachfront rooms, master suites, and native seaside cottages for Day Tour or Overnight stays.">
+  <meta name="keywords" content="Talisay Beach Resort, Tabina beach, Zamboanga del Sur resort, cottage booking Tabina, beachfront rooms, beach resort Mindanao, Day Tour cottage, Overnight room booking">
+  <meta name="author" content="Talisay Beach Resort">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://talisaybeachresort.com/index.html">
+  <meta name="google-site-verification" content="google-site-verification-talisay-beach-resort">
+  <meta name="theme-color" content="#0066cc">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://talisaybeachresort.com/">
+  <meta property="og:title" content="Talisay Beach Resort - Tabina, Zamboanga del Sur">
+  <meta property="og:description" content="Discover, Book, and Experience the pristine sanctuary of Talisay Beach Resort in Tabina, Zamboanga del Sur.">
+  <meta property="og:image" content="https://talisaybeachresort.com/1.png">
+  <meta property="og:site_name" content="Talisay Beach Resort">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Talisay Beach Resort - Tabina, Zamboanga del Sur">
+  <meta name="twitter:description" content="Escape to the tranquil shores of Tabina. Book your Day Tour cottages and Overnight suites today.">
+  <meta name="twitter:image" content="https://talisaybeachresort.com/1.png">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Resort",
+    "name": "Talisay Beach Resort",
+    "description": "Escape to the tranquil shores of Tabina, Zamboanga del Sur. A premium sanctuary blending modern comfort with pristine natural beauty.",
+    "url": "https://talisaybeachresort.com/",
+    "telephone": "+639979051718",
+    "image": "https://talisaybeachresort.com/1.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tabina",
+      "addressRegion": "Zamboanga del Sur",
+      "addressCountry": "PH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 7.4644,
+      "longitude": 123.4072
+    },
+    "priceRange": "₱1,000 - ₱5,000",
+    "currenciesAccepted": "PHP",
+    "paymentAccepted": "Cash on Arrival",
+    "checkinTime": "14:00",
+    "checkoutTime": "12:00",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Beachfront Access", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air Conditioned Master Suites", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Native Bamboo Cottages", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Poolside Gazebo", "value": true }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <!-- Top Left Resort Logo Stamp -->
+    <div class="auth-top-logo">
+      <img src="logo.png" alt="Talisay Beach Logo">
+    </div>
+
+    <!-- Bottom Left Welcome Banner -->
+    <div class="auth-bottom-banner">
+      <h1>TALISAY BEACH</h1>
+      <div class="subtitle">TOUR AND BOOKING MANAGEMENT SYSTEM</div>
+      <div class="tagline">Discover. Book. Experience.</div>
+      <div class="banner-divider">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <div class="location">Tabina, Zamboanga del Sur</div>
+    </div>
+
+    <!-- Right Login Card -->
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-avatar-circle">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h2>WELCOME!!</h2>
+        <p>Please log in to your account to continue</p>
+        <div class="palm-divider">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+      </div>
+
+      <div class="auth-role-label">LOGIN AS</div>
+      <div class="role-toggle-group">
+        <button type="button" class="role-btn user-role active" id="roleBtnUser">
+          <i class="fa-solid fa-circle-user"></i>
+          <span>User</span>
+        </button>
+        <button type="button" class="role-btn admin-role" id="roleBtnAdmin">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Admin</span>
+        </button>
+      </div>
+
+      <form id="loginForm">
+        <input type="hidden" id="selectedRole" value="user">
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-user icon-left"></i>
+            <input type="text" id="username" placeholder="Username" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-icon-group">
+            <i class="fa-solid fa-lock icon-left"></i>
+            <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
+            <i class="fa-solid fa-eye icon-right toggle-password" data-target="password"></i>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="forgot.html" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-auth-primary">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>LOGIN</span>
+        </button>
+      </form>
+
+      <div class="auth-separator">Don't have an account?</div>
+
+      <a href="register.html" class="btn-auth-secondary">
+        <i class="fa-solid fa-user-plus"></i>
+        <span>REGISTER HERE</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Firebase Cloud Sync SDKs (Compat CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
